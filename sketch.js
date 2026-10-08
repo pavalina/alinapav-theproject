@@ -1,19 +1,7 @@
 let img;
 
 function preload() {
-  img = loadImage(
-    "https://pavalina.github.io/alinapav-theproject/ProjectRose.png",
-    imageLoaded,
-    imageFailed
-  );
-}
-
-function imageLoaded() {
-  console.log("IMAGE LOADED");
-}
-
-function imageFailed() {
-  console.log("IMAGE FAILED");
+  img = loadImage("ProjectRose.png");
 }
 
 function setup() {
@@ -23,7 +11,6 @@ function setup() {
 function draw() {
   background(200, 255, 200);
 
-  if (img) {
-    image(img, 0, 0, width, height);
-  }
+  imageMode(CENTER);
+  image(img, width / 2, height / 2);
 }
