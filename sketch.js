@@ -1,7 +1,16 @@
+let img;
+
+function preload() {
+  img = loadImage("ProjectRose.png");
+}
+
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
-  background(237, 34, 93);
+  background(0);
+
+  imageMode(CENTER);
+  image(img, width / 2, height / 2);
 }
