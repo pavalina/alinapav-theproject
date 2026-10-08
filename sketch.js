@@ -9,7 +9,7 @@ function setup() {
 }
 
 function draw() {
-  background(0);
+  background(200, 255, 200);
 
   imageMode(CENTER);
   image(img, width / 2, height / 2);
