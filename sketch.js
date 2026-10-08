@@ -1,7 +1,7 @@
 let img;
 
 function preload() {
-  img = loadImage("ProjectRose.png");
+  img = loadImage("https://pavalina.github.io/alinapav-theproject/ProjectRose.png");
 }
 
 function setup() {
@@ -11,5 +11,5 @@ function setup() {
 function draw() {
   background(200, 255, 200);
 
-  image(img, 0, 0);
+  image(img, 0, 0, width, height);
 }
