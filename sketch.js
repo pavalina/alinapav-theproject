@@ -11,6 +11,5 @@ function setup() {
 function draw() {
   background(200, 255, 200);
 
-  imageMode(CENTER);
-  image(img, width / 2, height / 2);
+  image(img, 0, 0);
 }
