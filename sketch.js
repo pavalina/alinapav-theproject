@@ -59,7 +59,7 @@ function draw() {
 
         image(
             flowerOptions[i].image,
-            width / 2,
+            w / 2,
             y - 10,
             75,
             75
