@@ -17,6 +17,11 @@ function preload() {
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
+}
+
+function phoneSetup() {
+  console.log("Phone setup initialized");
+}
 
     // Join the flower garden room
     phoneSetup(room, { flower: "" });
@@ -29,7 +34,7 @@ function setup() {
         { name: "Daisy", image: daisy },
         { name: "Tulip", image: tulip }
     ];
-}
+
 
 function draw() {
     background(200, 255, 200);
