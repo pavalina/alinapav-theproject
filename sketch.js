@@ -9,6 +9,14 @@ let selectedFlower = "";
 
 let room = "flower-garden";
 
+const SHARE_HOST = 'https://p5-phone-share.npuckett.workers.dev';   // the class server
+const ROOM = 'a1-maple';    // your room
+
+
+
+
+
+
 function preload() {
    Rose = loadImage("Rose.png");
     Daisy = loadImage("Daisy.png");
@@ -22,24 +30,38 @@ function preload() {
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
+
+  shareSetup({
+    host: SHARE_HOST,
+    room: ROOM,
+    app: 'flower-garden',
+    me: { number: 0 }
+  });
+
+
+enablePermissionsTap(['share'], 'Join the garden');
+
+    flowerOptions = [
+        { name: "Rose", image: Rose },
+        { name: "Daisy", image: Daisy },
+        { name: "Tulip", image: Tulip }
+    ];
+
+
 }
+
+
 
 function phoneSetup() {
   console.log("Phone setup initialized");
 }
 
     // Join the flower garden room
-    phoneSetup(room, { flower: "" });
+   // phoneSetup(room, { flower: "" });
 
-    // Allow the person to join
-    enableShareTap("Join the garden");
-/*
-    flowerOptions = [
-        { name: "Rose", image: Rose },
-        { name: "Daisy", image: Daisy },
-        { name: "Tulip", image: Tulip }
-    ];
-*/
+
+
+
 
 function draw() {
     background(200, 255, 200);
@@ -63,7 +85,7 @@ function draw() {
         imageMode(CENTER);
 
         image(
-            flowerOptions[i],
+            flowerOptions[i].image,
             width / 2,
             y - 10,
             75,
@@ -91,7 +113,7 @@ function draw() {
         );
     }
 
-    text(footerLine(), width / 2, height - 20);
+    //text(footerLine(), width / 2, height - 20);
 }
 
 function mousePressed() {
