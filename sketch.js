@@ -10,9 +10,14 @@ let selectedFlower = "";
 let room = "flower-garden";
 
 function preload() {
-    Rose = loadImage("Rose.png");
-    Daisy = loadImage("Daisy.png");
-    Tulip = loadImage("Tulip.png");
+   // Rose = loadImage("Rose.png");
+   // Daisy = loadImage("Daisy.png");
+   // Tulip = loadImage("Tulip.png");
+
+    flowerOptions[0] = loadImage("Rose.png");
+    flowerOptions[1] = loadImage("Daisy.png");
+    flowerOptions[2] = loadImage("Tulip.png");
+
 }
 
 function setup() {
@@ -28,13 +33,13 @@ function phoneSetup() {
 
     // Allow the person to join
     enableShareTap("Join the garden");
-
+/*
     flowerOptions = [
         { name: "Rose", image: rose },
         { name: "Daisy", image: daisy },
         { name: "Tulip", image: tulip }
     ];
-
+*/
 
 function draw() {
     background(200, 255, 200);
@@ -58,8 +63,8 @@ function draw() {
         imageMode(CENTER);
 
         image(
-            flowerOptions[i].image,
-            w / 2,
+            flowerOptions[i],
+            width / 2,
             y - 10,
             75,
             75
