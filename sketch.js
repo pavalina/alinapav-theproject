@@ -47,7 +47,6 @@ enablePermissionsTap(['share'], 'Join the garden');
         { name: "Tulip", image: Tulip }
     ];
 
-
 }
 
 
