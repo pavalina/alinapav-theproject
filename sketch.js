@@ -10,9 +10,9 @@ let selectedFlower = "";
 let room = "flower-garden";
 
 function preload() {
-    rose = loadImage("Rose.png");
-    daisy = loadImage("Daisy.png");
-    tulip = loadImage("Tulip.png");
+    Rose = loadImage("Rose.png");
+    Daisy = loadImage("Daisy.png");
+    Tulip = loadImage("Tulip.png");
 }
 
 function setup() {
