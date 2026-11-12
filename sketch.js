@@ -10,13 +10,13 @@ let selectedFlower = "";
 let room = "flower-garden";
 
 function preload() {
-   // Rose = loadImage("Rose.png");
-   // Daisy = loadImage("Daisy.png");
-   // Tulip = loadImage("Tulip.png");
+   Rose = loadImage("Rose.png");
+    Daisy = loadImage("Daisy.png");
+   Tulip = loadImage("Tulip.png");
 
-    flowerOptions[0] = loadImage("Rose.png");
-    flowerOptions[1] = loadImage("Daisy.png");
-    flowerOptions[2] = loadImage("Tulip.png");
+    // flowerOptions[0] = loadImage("Rose.png");
+    // flowerOptions[1] = loadImage("Daisy.png");
+    // flowerOptions[2] = loadImage("Tulip.png");
 
 }
 
@@ -35,9 +35,9 @@ function phoneSetup() {
     enableShareTap("Join the garden");
 /*
     flowerOptions = [
-        { name: "Rose", image: rose },
-        { name: "Daisy", image: daisy },
-        { name: "Tulip", image: tulip }
+        { name: "Rose", image: Rose },
+        { name: "Daisy", image: Daisy },
+        { name: "Tulip", image: Tulip }
     ];
 */
 
