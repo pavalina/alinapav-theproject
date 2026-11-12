@@ -57,13 +57,13 @@ function draw() {
 
         imageMode(CENTER);
 
-        image(
-            flowerOptions[i].image,
-            width / 2,
-            y - 10,
-            75,
-            75
-        );
+        // image(
+        //     flowerOptions[i].image,
+        //     width / 2,
+        //     y - 10,
+        //     75,
+        //     75
+        // );
 
         noStroke();
         fill(50);
