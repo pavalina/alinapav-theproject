@@ -1,7 +1,7 @@
 
-let rose;
-let daisy;
-let tulip;
+let Rose;
+let Daisy;
+let Tulip;
 
 let flowerOptions = [];
 
@@ -19,7 +19,7 @@ const ROOM = 'a1-maple';    // your room
 
 function preload() {
    Rose = loadImage("Rose.png");
-    Daisy = loadImage("Daisy.png");
+   Daisy = loadImage("Daisy.png");
    Tulip = loadImage("Tulip.png");
 
     // flowerOptions[0] = loadImage("Rose.png");
@@ -117,13 +117,14 @@ function draw() {
     //text(footerLine(), width / 2, height - 20);
 }
 
+
 function mousePressed() {
 
     if (!shareConnected) {
+        console.log("Not connected to server yet");
         return;
     }
 
-    // Check which flower was selected
     for (let i = 0; i < flowerOptions.length; i++) {
 
         let y = 170 + i * 150;
@@ -134,13 +135,17 @@ function mousePressed() {
             mouseY > y - 55 &&
             mouseY < y + 55
         ) {
+
             selectedFlower = flowerOptions[i].name;
 
-            // Send the choice to the server
+            // Send flower choice to the host
             me.flower = selectedFlower;
+
+            console.log("Selected:", selectedFlower);
         }
     }
 }
+
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);

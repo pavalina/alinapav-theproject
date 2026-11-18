@@ -1,9 +1,9 @@
 
-let rose;
-let daisy;
-let tulip;
+let Rose;
+let Daisy;
+let Tulip;
 
-let room = "flower-garden";
+let room = "a1-maple";
 
 function preload() {
     Rose = loadImage("Rose.png");
@@ -55,8 +55,9 @@ function draw() {
 
     // Find all connected phones
     let phones = guests.filter(function(phone) {
-        return phone.role === "phone";
+    return phone.number !== undefined;
     });
+
 
     textSize(20);
     text(
@@ -74,15 +75,15 @@ function draw() {
         imageMode(CENTER);
 
         if (phones[i].flower === "Rose") {
-            image(rose, x, y, 130, 130);
+            image(Rose, x, y, 130, 130);
         }
 
         if (phones[i].flower === "Daisy") {
-            image(daisy, x, y, 130, 130);
+            image(Daisy, x, y, 130, 130);
         }
 
         if (phones[i].flower === "Tulip") {
-            image(tulip, x, y, 130, 130);
+            image(Tulip, x, y, 130, 130);
         }
     }
 
