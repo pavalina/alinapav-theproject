@@ -47,6 +47,7 @@ enablePermissionsTap(['share'], 'Join the garden');
         { name: "Tulip", image: Tulip }
     ];
 
+
 }
 
 
@@ -63,7 +64,7 @@ function phoneSetup() {
 
 
 function draw() {
-    background(200, 255, 200);
+    background (0, 128, 0);
 
     textAlign(CENTER, CENTER);
     fill(50);
@@ -77,7 +78,8 @@ function draw() {
         let y = 170 + i * 150;
 
         fill(255);
-        stroke(100, 150, 100);
+        stroke(0, 128, 0);
+        strokeWeight(4);
 
         rect(width / 2 - 110, y - 55, 220, 110, 15);
 

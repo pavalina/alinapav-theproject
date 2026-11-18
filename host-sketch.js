@@ -6,9 +6,9 @@ let tulip;
 let room = "flower-garden";
 
 function preload() {
-    rose = loadImage("ProjectRose.png");
-    daisy = loadImage("Daisy.png");
-    tulip = loadImage("Tulip.png");
+    Rose = loadImage("Rose.png");
+    Daisy = loadImage("Daisy.png");
+    Tulip = loadImage("Tulip.png");
 }
 
 function setup() {
@@ -45,13 +45,13 @@ function setup() {
 }
 
 function draw() {
-    background(200, 255, 200);
+    background (0, 128, 0);
 
     textAlign(CENTER, CENTER);
     fill(50);
 
     textSize(35);
-    text("Our Flower Garden", width / 2, 60);
+    text("Community Flower Garden", width / 2, 60);
 
     // Find all connected phones
     let phones = guests.filter(function(phone) {
@@ -60,7 +60,7 @@ function draw() {
 
     textSize(20);
     text(
-        phones.length + " people have joined",
+        phones.length + " Flowers In Garden",
         width / 2,
         110
     );
@@ -88,7 +88,7 @@ function draw() {
 
     if (phones.length === 0) {
         textSize(20);
-        text("Waiting for people to join...", width / 2, height / 2);
+        text("Waiting For The Garden To Flourish", width / 2, height / 2);
     }
 }
 
