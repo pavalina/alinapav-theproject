@@ -1,7 +1,10 @@
 
 let Rose;
-let Daisy;
-let Tulip;
+let Aster;
+let Lily;
+let Hibiscus;
+let Plumeria;
+let Primrose;
 
 let selectedFlower = "";
 
@@ -9,13 +12,19 @@ const SHARE_HOST = 'https://p5-phone-share.npuckett.workers.dev';
 const ROOM = 'a1-maple';
 
 let roseButton;
-let daisyButton;
-let tulipButton;
+let asterButton;
+let lilyButton;
+let hibiscusButton;
+let plumeriaButton;
+let primroseButton;
 
 function preload() {
     Rose = loadImage("Rose.png");
-    Daisy = loadImage("Daisy.png");
-    Tulip = loadImage("Tulip.png");
+    Aster = loadImage("Aster.png");
+    Lily = loadImage("Lily.png");
+    Hibiscus = loadImage("Hibiscus.png");
+    Plumeria = loadImage("Plumeria.png");
+    Primrose = loadImage("Primrose.png");
 }
 
 function setup() {
@@ -33,24 +42,39 @@ function setup() {
 
     // Create flower buttons using PNG images
     roseButton = createImg("Rose.png", "Rose");
-    daisyButton = createImg("Daisy.png", "Daisy");
-    tulipButton = createImg("Tulip.png", "Tulip");
+    asterButton = createImg("Aster.png", "Aster");
+    lilyButton = createImg("Lily.png", "Lily");
+    hibiscusButton = createImg("Hibiscus.png", "Hibiscus");
+    plumeriaButton = createImg("Plumeria.png", "Plumeria");
+    primroseButton = createImg("Primrose.png", "Primrose");
 
     // Make the images clickable
     roseButton.mousePressed(function() {
         chooseFlower("Rose");
     });
 
-    daisyButton.mousePressed(function() {
-        chooseFlower("Daisy");
+    asterButton.mousePressed(function() {
+        chooseFlower("Aster");
     });
 
-    tulipButton.mousePressed(function() {
-        chooseFlower("Tulip");
+    lilyButton.mousePressed(function() {
+        chooseFlower("Lily");
+    });
+
+    hibiscusButton.mousePressed(function() {
+        chooseFlower("Hibiscus");
+    });
+
+    plumeriaButton.mousePressed(function() {
+        chooseFlower("Plumeria");
+    });
+
+    primroseButton.mousePressed(function() {
+        chooseFlower("Primrose");
     });
 
     // Style the flower images
-    let buttons = [roseButton, daisyButton, tulipButton];
+    let buttons = [roseButton, asterButton, lilyButton, hibiscusButton, plumeriaButton, primroseButton];
 
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].size(100, 100);
@@ -88,14 +112,17 @@ function draw() {
     text("Choose your flower", width / 2, 70);
 
     // Position the flower buttons
-    roseButton.position(width / 2 - 50, 150);
-    daisyButton.position(width / 2 - 50, 290);
-    tulipButton.position(width / 2 - 50, 430);
+    roseButton.position(width / 2 - 170, 200);
+    asterButton.position(width / 2 - 50, 200);
+    lilyButton.position(width / 2 + 70, 200);
+    hibiscusButton.position(width / 2 - 170, 400);
+    plumeriaButton.position(width / 2 - 50, 400);
+    primroseButton.position(width / 2 + 70, 400);
 
     textSize(18);
 
     if (selectedFlower !== "") {
-        text("Your flower: " + selectedFlower, width / 2, height - 45);
+        text("Your flower: " + selectedFlower, width / 2, height - 35);
     }
 }
 

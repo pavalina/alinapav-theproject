@@ -1,14 +1,21 @@
 
+
 let Rose;
-let Daisy;
-let Tulip;
+let Aster;
+let Lily;
+let Hibiscus;
+let Plumeria;
+let Primrose;
 
 let room = "a1-maple";
 
 function preload() {
     Rose = loadImage("Rose.png");
-    Daisy = loadImage("Daisy.png");
-    Tulip = loadImage("Tulip.png");
+    Aster = loadImage("Aster.png");
+    Lily = loadImage("Lily.png");
+    Hibiscus = loadImage("Hibiscus.png");
+    Plumeria = loadImage("Plumeria.png");
+    Primrose = loadImage("Primrose.png");
 }
 
 function setup() {
@@ -68,7 +75,7 @@ function draw() {
 
     textSize(20);
     text(
-        phones.length + " Flowers In Garden",
+        phones.length + " Flower(s) In Garden",
         width / 2,
         110
     );
@@ -85,12 +92,24 @@ function draw() {
             image(Rose, x, y, 130, 130);
         }
 
-        if (phones[i].flower === "Daisy") {
-            image(Daisy, x, y, 130, 130);
+        if (phones[i].flower === "Aster") {
+            image(Aster, x, y, 130, 130);
         }
 
-        if (phones[i].flower === "Tulip") {
-            image(Tulip, x, y, 130, 130);
+        if (phones[i].flower === "Lily") {
+            image(Lily, x, y, 130, 130);
+        }
+
+        if (phones[i].flower === "Hibiscus") {
+            image(Hibiscus, x, y, 130, 130);
+        }
+
+        if (phones[i].flower === "Plumeria") {
+            image(Plumeria, x, y, 130, 130);
+        }
+
+        if (phones[i].flower === "Primrose") {
+            image(Primrose, x, y, 130, 130);
         }
     }
 
