@@ -129,7 +129,7 @@ function draw() {
     textSize(18);
 
     if (selectedFlower !== "") {
-        text("Your Flower : " + selectedFlower, width / 2, height - 290);
+        text("Your Flower : " + selectedFlower, width / 2, height - 90);
     }
 }
 
