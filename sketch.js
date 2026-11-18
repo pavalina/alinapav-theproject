@@ -3,149 +3,101 @@ let Rose;
 let Daisy;
 let Tulip;
 
-let flowerOptions = [];
-
 let selectedFlower = "";
 
-let room = "flower-garden";
+const SHARE_HOST = 'https://p5-phone-share.npuckett.workers.dev';
+const ROOM = 'a1-maple';
 
-const SHARE_HOST = 'https://p5-phone-share.npuckett.workers.dev';   // the class server
-const ROOM = 'a1-maple';    // your room
-
-
-
-
-
+let roseButton;
+let daisyButton;
+let tulipButton;
 
 function preload() {
-   Rose = loadImage("Rose.png");
-   Daisy = loadImage("Daisy.png");
-   Tulip = loadImage("Tulip.png");
-
-    // flowerOptions[0] = loadImage("Rose.png");
-    // flowerOptions[1] = loadImage("Daisy.png");
-    // flowerOptions[2] = loadImage("Tulip.png");
-
+    Rose = loadImage("Rose.png");
+    Daisy = loadImage("Daisy.png");
+    Tulip = loadImage("Tulip.png");
 }
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
 
-  shareSetup({
-    host: SHARE_HOST,
-    room: ROOM,
-    app: 'flower-garden',
-    me: { number: 0 }
-  });
+    shareSetup({
+        host: SHARE_HOST,
+        room: ROOM,
+        app: 'flower-garden',
+        me: { number: 0 }
+    });
 
+    //enablePermissionsTap(['share'], 'Join the garden');
+    enableShareTap("Join the garden");
 
-enablePermissionsTap(['share'], 'Join the garden');
+    // Create flower buttons using PNG images
+    roseButton = createImg("Rose.png", "Rose");
+    daisyButton = createImg("Daisy.png", "Daisy");
+    tulipButton = createImg("Tulip.png", "Tulip");
 
-    flowerOptions = [
-        { name: "Rose", image: Rose },
-        { name: "Daisy", image: Daisy },
-        { name: "Tulip", image: Tulip }
-    ];
+    // Make the images clickable
+    roseButton.mousePressed(function() {
+        chooseFlower("Rose");
+    });
 
+    daisyButton.mousePressed(function() {
+        chooseFlower("Daisy");
+    });
 
+    tulipButton.mousePressed(function() {
+        chooseFlower("Tulip");
+    });
+
+    // Style the flower images
+    let buttons = [roseButton, daisyButton, tulipButton];
+
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].size(100, 100);
+        buttons[i].style('cursor', 'pointer');
+        buttons[i].style('object-fit', 'contain');
+        buttons[i].style('padding', '10px');
+        buttons[i].style('background-color', 'white');
+        buttons[i].style('border', '3px solid darkgreen');
+        buttons[i].style('border-radius', '15px');
+    }
 }
 
+function chooseFlower(flower) {
 
+    if (!shareConnected) {
+        console.log("Not connected yet");
+        return;
+    }
 
-function phoneSetup() {
-  console.log("Phone setup initialized");
+    selectedFlower = flower;
+
+    // Send flower selection to host
+    me.flower = selectedFlower;
+
+    console.log("Selected flower: " + selectedFlower);
 }
-
-    // Join the flower garden room
-   // phoneSetup(room, { flower: "" });
-
-
-
-
 
 function draw() {
-    background (0, 128, 0);
+    background(0, 128, 0);
 
     textAlign(CENTER, CENTER);
-    fill(50);
+    fill(255);
 
     textSize(26);
     text("Choose your flower", width / 2, 70);
 
-    // Show flower choices
-    for (let i = 0; i < flowerOptions.length; i++) {
+    // Position the flower buttons
+    roseButton.position(width / 2 - 50, 150);
+    daisyButton.position(width / 2 - 50, 290);
+    tulipButton.position(width / 2 - 50, 430);
 
-        let y = 170 + i * 150;
-
-        fill(255);
-        stroke(0, 128, 0);
-        strokeWeight(4);
-
-        rect(width / 2 - 110, y - 55, 220, 110, 15);
-
-        imageMode(CENTER);
-
-        image(
-            flowerOptions[i].image,
-            width / 2,
-            y - 10,
-            75,
-            75
-        );
-
-        noStroke();
-        fill(50);
-        textSize(18);
-
-        text(
-            flowerOptions[i].name,
-            width / 2,
-            y + 38
-        );
-    }
-
-    textSize(16);
+    textSize(18);
 
     if (selectedFlower !== "") {
-        text(
-            "Your flower: " + selectedFlower,
-            width / 2,
-            height - 45
-        );
-    }
-
-    //text(footerLine(), width / 2, height - 20);
-}
-
-
-function mousePressed() {
-
-    if (!shareConnected) {
-        console.log("Not connected to server yet");
-        return;
-    }
-
-    for (let i = 0; i < flowerOptions.length; i++) {
-
-        let y = 170 + i * 150;
-
-        if (
-            mouseX > width / 2 - 110 &&
-            mouseX < width / 2 + 110 &&
-            mouseY > y - 55 &&
-            mouseY < y + 55
-        ) {
-
-            selectedFlower = flowerOptions[i].name;
-
-            // Send flower choice to the host
-            me.flower = selectedFlower;
-
-            console.log("Selected:", selectedFlower);
-        }
+        text("Your flower: " + selectedFlower, width / 2, height - 45);
     }
 }
-
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);

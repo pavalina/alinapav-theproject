@@ -18,34 +18,42 @@ function setup() {
     let host = new URLSearchParams(window.location.search).get("shareHost");
 
     if (!host) {
-        host = window.CLASS_SHARE_HOST || "";
+        host = window.CLASS_SHARE_HOST || "https://p5-phone-share.npuckett.workers.dev";
     }
 
     // Join the same room as the phones
-    if (host) {
-        shareSetup({
-            host: host,
-            room: room,
-            me: { role: "host" }
-        });
+    shareSetup({
+        host: host,
+        room: room,
+        app: 'flower-garden',
+        me: { role: "host" }
+    });
 
-        enableShareTap("Start the garden");
+    enableShareTap("Start the garden");
 
-        // Make a QR code for the phone page
-        let phoneUrl = new URL("index.html", window.location.href);
+    console.log("Host server:", host);
+    console.log("Host room:", room);
 
-        phoneUrl.searchParams.set("shareHost", host);
-        phoneUrl.searchParams.set("room", room);
+    // Make a QR code for the phone page
+    let phoneUrl = new URL("index.html", window.location.href);
 
-        showDesktopQr({
-            url: phoneUrl.toString(),
-            label: "Scan to choose a flower"
-        });
-    }
+    phoneUrl.searchParams.set("shareHost", host);
+    phoneUrl.searchParams.set("room", room);
+    phoneUrl.searchParams.set("app", "flower-garden");
+
+    showDesktopQr({
+        url: phoneUrl.toString(),
+        label: "Scan to choose a flower"
+    });
+}
+
+// Check when the host connects
+function shareReady() {
+    console.log("Host connected successfully!");
 }
 
 function draw() {
-    background (0, 128, 0);
+    background(0, 128, 0);
 
     textAlign(CENTER, CENTER);
     fill(50);
@@ -55,9 +63,8 @@ function draw() {
 
     // Find all connected phones
     let phones = guests.filter(function(phone) {
-    return phone.number !== undefined;
+        return phone.number !== undefined;
     });
-
 
     textSize(20);
     text(
