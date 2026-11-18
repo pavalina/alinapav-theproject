@@ -1,4 +1,5 @@
-
+let titleFont;
+let regularFont;
 
 let Rose;
 let Aster;
@@ -20,6 +21,10 @@ function preload() {
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
+
+    //Fonts
+    titleFont = "Dancing Script";
+    regularFont = "Quicksand";
 
     // Find the server address
     let host = new URLSearchParams(window.location.search).get("shareHost");
@@ -65,7 +70,8 @@ function draw() {
     textAlign(CENTER, CENTER);
     fill(50);
 
-    textSize(35);
+    textFont(titleFont);
+    textSize(50);
     text("Community Flower Garden", width / 2, 60);
 
     // Find all connected phones
@@ -73,7 +79,8 @@ function draw() {
         return phone.number !== undefined;
     });
 
-    textSize(20);
+    textFont(regularFont);
+    textSize(16);
     text(
         phones.length + " Flower(s) In Garden",
         width / 2,

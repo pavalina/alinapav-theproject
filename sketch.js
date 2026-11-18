@@ -1,3 +1,5 @@
+let titleFont;
+let regularFont;
 
 let Rose;
 let Aster;
@@ -29,6 +31,9 @@ function preload() {
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
+
+    titleFont = "Dancing Script";
+    regularFont = "Quicksand";
 
     shareSetup({
         host: SHARE_HOST,
@@ -108,21 +113,23 @@ function draw() {
     textAlign(CENTER, CENTER);
     fill(255);
 
-    textSize(26);
+    textFont(titleFont);
+    textSize(60);
     text("Choose your flower", width / 2, 70);
 
     // Position the flower buttons
-    roseButton.position(width / 2 - 170, 200);
-    asterButton.position(width / 2 - 50, 200);
-    lilyButton.position(width / 2 + 70, 200);
-    hibiscusButton.position(width / 2 - 170, 400);
-    plumeriaButton.position(width / 2 - 50, 400);
-    primroseButton.position(width / 2 + 70, 400);
+    roseButton.position(width / 2 - 190, 150);
+    asterButton.position(width / 2 - 50, 150);
+    lilyButton.position(width / 2 + 90, 150);
+    hibiscusButton.position(width / 2 - 190, 350);
+    plumeriaButton.position(width / 2 - 50, 350);
+    primroseButton.position(width / 2 + 90, 350);
 
+    textFont(regularFont);
     textSize(18);
 
     if (selectedFlower !== "") {
-        text("Your flower: " + selectedFlower, width / 2, height - 35);
+        text("Your Flower : " + selectedFlower, width / 2, height - 290);
     }
 }
 
